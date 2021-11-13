@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.9.1/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+
+    <title>ตาฟาง Book Store</title>
+</head>
+
+<body>
+    <div class="uk-container uk-container-expand ">
+        <div class="uk-grid-collapse uk-child-width-1-4@s font-prompt" uk-grid>
+            <div>
+                <div class="uk-background-default uk-padding uk-padding-remove-bottom ">
+                    <h3 class="font-prompt"><i class="fas fa-book"></i><b class="uk-text-large"> ตาฟาง</b> Book Store</h3>
+                </div>
+            </div>
+            <div>
+                <div class="uk-background-default uk-padding"></div>
+            </div>
+            <div>
+                <div class="uk-background-default uk-padding"></div>
+            </div>
+            <div>
+                <div class="uk-background-default uk-padding uk-align-right">
+                    <button class="uk-button uk-button-default"><i class="fas fa-shopping-cart"></i></button>
+                    <div uk-dropdown>
+                        <ul class="uk-nav uk-dropdown-nav">
+                            <li class="uk-nav-header">รายการหนังสือ</li>
+                            <li><a href="#">หนังสือ 1</a></li>
+                            <li><a href="#">หนังสือ 2</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="#">จ่ายเงิน</a></li>
+                            <li><a href="#">ลบรายการทั้งหมด</a></li>
+                        </ul>
+                    </div>
+                    <button class="uk-button uk-button-default" uk-toggle="target: #modal-close-default">เข้าสู่ระบบ</button>
+                    <div id="modal-close-default" class="font-prompt" uk-modal>
+                        <div class="uk-modal-dialog">
+                            <div class="uk-modal-body">
+                                <h2 class="uk-modal-title font-prompt">เข้าสู่ระบบ</h2>
+                                <label class="uk-form-label" for="form-stacked-text">Username</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="กรอก Username">
+                                </div>
+                                <label class="uk-form-label" for="form-stacked-text">Password</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="กรอก Password">
+                                </div>
+                            </div>
+                            <div class="uk-modal-footer uk-text-right">
+                                <button class="uk-button uk-button-primary" type="button">เข้าสู่ระบบ</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+        <div class="uk-grid-small uk-child-width-1-2@s uk-flex-center uk-text-center font-prompt" uk-grid>
+            <div class="uk-flex-first">
+                <div class="uk-background-default uk-padding uk-padding-remove-top">
+                    <input class="uk-input  uk-form-width-large" type="text" placeholder="ชื่อของหนังสือ">
+                    <button class="uk-button uk-button-default">ค้นหาหนังสือ</button>
+                </div>
+                
+            </div>
+            
+        </div>
+
+        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true">
+
+            <ul class="uk-slider-items uk-grid autoplay: true">
+                <li class="uk-width-3-4">
+                    <div class="uk-panel">
+                        <img src="https://thomasthailand.co/wp-content/uploads/elementor/thumbs/Artboard-2100-2-p1jebtxpx9ktodyhzmumk2k7hl0wdcwhnefbietve8.jpg" alt="">
+                        <div class="uk-position-bottom uk-panel"><h1></h1></div>
+                    </div>
+                </li>
+                <li class="uk-width-3-4">
+                    <div class="uk-panel">
+                        <img src="https://thomasthailand.co/wp-content/uploads/elementor/thumbs/Artboard-2100-2-p1jebtxpx9ktodyhzmumk2k7hl0wdcwhnefbietve8.jpg" alt="">
+                        <div class="uk-position-bottom uk-panel"><h1></h1></div>
+                    </div>
+                </li>
+                <li class="uk-width-3-4">
+                    <div class="uk-panel">
+                        <img src="https://thomasthailand.co/wp-content/uploads/elementor/thumbs/Artboard-2100-2-p1jebtxpx9ktodyhzmumk2k7hl0wdcwhnefbietve8.jpg" alt="">
+                        <div class="uk-position-bottom uk-panel"><h1></h1></div>
+                    </div>
+                </li>
+            </ul>
+        
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+        
+        </div>
+        <div class="uk-width-1-1">
+            <h1 class="uk-margin-left uk-margin-top uk-heading-line font-prompt"><span>หนังสือขายดี</span></h1>
+        </div>
+        <div class="container">
+            <div uk-slider>
+
+                <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-6@m uk-light uk-grid">
+                    <li class="uk-transition-toggle" tabindex="0">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
+                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">1</h1></div>
+                    </li>
+                    <li class="uk-transition-toggle" tabindex="0">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
+                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">2</h1></div>
+                    </li>
+                    <li class="uk-transition-toggle" tabindex="0">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
+                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">3</h1></div>
+                    </li>
+                    <li class="uk-transition-toggle" tabindex="0">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
+                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">4</h1></div>
+                    </li>
+                    <li class="uk-transition-toggle" tabindex="0">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
+                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">5</h1></div>
+                    </li>
+                    <li class="uk-transition-toggle" tabindex="0">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
+                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">6</h1></div>
+                    </li>
+                    <li class="uk-transition-toggle" tabindex="0">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
+                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">7</h1></div>
+                    </li>
+                    <li class="uk-transition-toggle" tabindex="0">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
+                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">8</h1></div>
+                    </li>
+                    <li class="uk-transition-toggle" tabindex="0">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
+                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">9</h1></div>
+                    </li>
+                    <li class="uk-transition-toggle" tabindex="0">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
+                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">10</h1></div>
+                    </li>
+                </ul>
+                <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+            
+            
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+<script src="https://kit.fontawesome.com/1ddc0f7b0c.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.9.1/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.9.1/dist/js/uikit-icons.min.js"></script>
+
+</html>
