@@ -1,22 +1,13 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for
+from routes import route
+from database import DB
+from name import Name
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return  render_template('home.html')
+DB.init()
 
-@app.route('/search')
-def search_page():
-    return  render_template('search_page.html')
-
-@app.route('/book_detail')
-def book_detail():
-    return  render_template('book_detail.html')
-
-@app.route('/payment')
-def payment():
-    return  render_template('payment.html')
+app.register_blueprint(route.get_blueprint())
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -37,7 +37,25 @@
                             <li><a href="#">ลบรายการทั้งหมด</a></li>
                         </ul>
                     </div>
-                    <button class="uk-button uk-button-default">เข้าสู่ระบบ</button>
+                    <button class="uk-button uk-button-default" uk-toggle="target: #modal-close-default">เข้าสู่ระบบ</button>
+                    <div id="modal-close-default" class="font-prompt" uk-modal>
+                        <div class="uk-modal-dialog">
+                            <div class="uk-modal-body">
+                                <h2 class="uk-modal-title font-prompt">เข้าสู่ระบบ</h2>
+                                <label class="uk-form-label" for="form-stacked-text">Username</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="กรอก Username">
+                                </div>
+                                <label class="uk-form-label" for="form-stacked-text">Password</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="กรอก Password">
+                                </div>
+                            </div>
+                            <div class="uk-modal-footer uk-text-right">
+                                <button class="uk-button uk-button-primary" type="button">เข้าสู่ระบบ</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

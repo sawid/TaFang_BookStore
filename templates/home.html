@@ -44,15 +44,15 @@
                                 <h2 class="uk-modal-title font-prompt">เข้าสู่ระบบ</h2>
                                 <label class="uk-form-label" for="form-stacked-text">Username</label>
                                 <div class="uk-form-controls">
-                                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="กรอก Username">
+                                    <input id="username" name="username" class="uk-input" id="form-stacked-text" type="text" placeholder="กรอก Username">
                                 </div>
                                 <label class="uk-form-label" for="form-stacked-text">Password</label>
                                 <div class="uk-form-controls">
-                                    <input class="uk-input" id="form-stacked-text" type="text" placeholder="กรอก Password">
+                                    <input id="password" name="password" class="uk-input" id="form-stacked-text" type="password" placeholder="กรอก Password">
                                 </div>
                             </div>
                             <div class="uk-modal-footer uk-text-right">
-                                <button class="uk-button uk-button-primary" type="button">เข้าสู่ระบบ</button>
+                                <button id="login_submit" class="uk-button uk-button-primary" type="button">เข้าสู่ระบบ</button>
                             </div>
                         </div>
                     </div>
@@ -159,5 +159,28 @@
 <script src="https://kit.fontawesome.com/1ddc0f7b0c.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.9.1/dist/js/uikit.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.9.1/dist/js/uikit-icons.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+    $('#login_submit ').on('click',function() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        console.log(username);
+        console.log(password);
+        $.ajax({
+            url: "/addName",
+            type: "POST",
+            data: {
+                "username": username,
+                "password": password
+
+            } ,
+            success: function (response) {
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    });
+</script>
 
 </html>
