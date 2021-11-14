@@ -18,11 +18,14 @@ class DB(object):
                 for result_object in check_temp_num:
                         print(result_object)
                         if result_object['password'] == temp_password:
-                                print("Can Login")
+                                return "Can Login"
                         else:
-                                print("Cant Login") 
+                                return "Cannot Login"
         else:
+                print("Insert")
                 DB.DATABASE[collection].insert(data)
+                print("Insert 2")
+                return "Register"
 
      @staticmethod
      def listName(collection, query):

@@ -26,7 +26,7 @@
             </div>
             <div>
                 <div class="uk-background-default uk-padding uk-align-right">
-                    <button class="uk-button uk-button-default"><i class="fas fa-shopping-cart"></i></button>
+                    <button id="cart" style="display: None" class="uk-button uk-button-default"><i class="fas fa-shopping-cart"></i></button>
                     <div uk-dropdown>
                         <ul class="uk-nav uk-dropdown-nav">
                             <li class="uk-nav-header">รายการหนังสือ</li>
@@ -37,7 +37,7 @@
                             <li><a href="#">ลบรายการทั้งหมด</a></li>
                         </ul>
                     </div>
-                    <button class="uk-button uk-button-default" uk-toggle="target: #modal-close-default">เข้าสู่ระบบ</button>
+                    <button id="login_button" class="uk-button uk-button-default" uk-toggle="target: #modal-close-default">เข้าสู่ระบบ</button>
                     <div id="modal-close-default" class="font-prompt" uk-modal>
                         <div class="uk-modal-dialog">
                             <div class="uk-modal-body">
@@ -52,6 +52,7 @@
                                 </div>
                             </div>
                             <div class="uk-modal-footer uk-text-right">
+                                <span id="login_status" class=""></span>
                                 <button id="login_submit" class="uk-button uk-button-primary" type="button">เข้าสู่ระบบ</button>
                             </div>
                         </div>
@@ -175,6 +176,22 @@
 
             } ,
             success: function (response) {
+                console.log(response)
+                if (response == "Can login") {
+                    document.getElementById('login_status').className = "uk-label uk-label-success";
+                    document.getElementById("login_status").textContent = "Login Successs";
+                    document.getElementById("cart").style.display = '';
+                    document.getElementById("login_button").disabled = true;
+                    document.getElementById("login_button").textContent = username;
+                }
+                else if (response == "Cannot Login") {
+                    document.getElementById('login_status').className = "uk-label uk-label-danger";
+                    document.getElementById("login_status").textContent="Wrong Password";
+                }
+                else if (response == "Regist Success") {
+                    document.getElementById('login_status').className = "uk-label uk-label-success";
+                    document.getElementById("login_status").textContent="Register Success";
+                }
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(textStatus, errorThrown);

@@ -27,5 +27,13 @@ def addName():
     username = request.form.get('username','')
     password = request.form.get('password','')
     newName = Name(name=username, password=password)
-    newName.insert()
-    return ('Success',200)
+    result = newName.insert()
+    temp = ""
+    if result == "Succcess":
+            temp = "Can login"
+    elif result == "Failed":
+            temp = "Cannot Login"
+    elif result == "Regist Success":
+            temp = "Regist Success"
+    print("Success")
+    return (temp,200)
