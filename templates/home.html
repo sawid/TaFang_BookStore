@@ -65,8 +65,8 @@
         <div class="uk-grid-small uk-child-width-1-2@s uk-flex-center uk-text-center font-prompt" uk-grid>
             <div class="uk-flex-first">
                 <div class="uk-background-default uk-padding uk-padding-remove-top">
-                    <input class="uk-input  uk-form-width-large" type="text" placeholder="ชื่อของหนังสือ">
-                    <button class="uk-button uk-button-default">ค้นหาหนังสือ</button>
+                    <input id="input_search" class="uk-input  uk-form-width-large" type="text" placeholder="ชื่อของหนังสือ" disabled>
+                    <button id="search_button" class="uk-button uk-button-default" disabled>ค้นหาหนังสือ</button>
                 </div>
                 
             </div>
@@ -133,7 +133,7 @@
                     </li>
                     <li class="uk-transition-toggle" tabindex="0">
                         <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
-                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">7</h1></div>
+                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">7</h1></div>  
                     </li>
                     <li class="uk-transition-toggle" tabindex="0">
                         <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
@@ -182,6 +182,8 @@
                     document.getElementById("login_status").textContent = "Login Successs";
                     document.getElementById("cart").style.display = '';
                     document.getElementById("login_button").disabled = true;
+                    document.getElementById("search_button").disabled = false;
+                    document.getElementById("input_search").disabled = false;
                     document.getElementById("login_button").textContent = username;
                 }
                 else if (response == "Cannot Login") {
