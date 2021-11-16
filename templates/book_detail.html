@@ -37,7 +37,7 @@
                             <li><a href="#">ลบรายการทั้งหมด</a></li>
                         </ul>
                     </div>
-                    <button class="uk-button uk-button-default" uk-toggle="target: #modal-close-default">เข้าสู่ระบบ</button>
+                    <button class="uk-button uk-button-default" uk-toggle="target: #modal-close-default" disabled>{{ username_data }}</button>
                     <div id="modal-close-default" class="font-prompt" uk-modal>
                         <div class="uk-modal-dialog">
                             <div class="uk-modal-body">
@@ -63,7 +63,7 @@
 
         <ul class="uk-breadcrumb font-prompt">
                 <li><a href="http://127.0.0.1:5000/">Home</a></li>
-                <li class="uk-disabled"><a>ค้นหาหนังสือ</a></li>
+                <li><a href="http://127.0.0.1:5000/search/{{ search_key }}">ค้นหาหนังสือ</a></li>
                 <li><span>รายละเอียดของหนังสือ</span></li>
         </ul>
 
@@ -74,16 +74,16 @@
         <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center font-prompt" uk-grid>
                 <div>
                         <div class="uk-background-default uk-padding uk-light">
-                                <img data-src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" sizes="(min-width: 325px) 650px, 100vw" width="325" height="216" alt="" uk-img>
+                                <img data-src="{{ data_book[3] }}" sizes="(min-width: 325px) 650px, 100vw" width="325" height="216" alt="" uk-img>
                         </div>
                 </div>
                 <div>
                     <div class="uk-background-default uk-padding uk-text-left">
-                            <p><b>ชื่อหนังสือ</b> อะไรก็ได้มั้ง</p>
-                            <p><b>ผู้แต่ง</b> อะไรก็ได้มั้ง</p>
-                            <p><b>ประเภท</b> อะไรก็ได้มั้ง</p>
-                            <p><b>อธิบายโดยย่อ</b> อะไรก็ได้มั้ง</p>
-                            <p class="uk-text-large "><b class="uk-text-success">35</b> บาท</p>
+                            <p><b>ชื่อหนังสือ</b> {{ data_book[0] }}</p>
+                            <p><b>ผู้แต่ง</b> {{ data_book[1] }}</p>
+                            <p><b>ประเภท</b> {{ data_book[2] }}</p>
+                            <p><b>อธิบายโดยย่อ</b> {{ data_book[4] }}</p>
+                            <p class="uk-text-large "><b class="uk-text-success">{{ data_book[6] * 35.0 }}</b> บาท</p>
                             <button class="uk-button uk-button-primary">ใส่ในตะกร้า</button>
                     </div>
                 </div>

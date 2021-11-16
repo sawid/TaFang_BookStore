@@ -58,7 +58,6 @@
                         </div>
                     </div>
 
-                    
                 </div>
             </div>
         </div>
@@ -107,46 +106,12 @@
             <div uk-slider>
 
                 <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-6@m uk-light uk-grid">
+                    {% for data_set in data %}
                     <li class="uk-transition-toggle" tabindex="0">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
-                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">1</h1></div>
+                        <img src="{{ data_set[3] }}" alt="">
+                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small font-prompt">{{ data_set[6] }} เล่ม</h1></div>
                     </li>
-                    <li class="uk-transition-toggle" tabindex="0">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
-                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">2</h1></div>
-                    </li>
-                    <li class="uk-transition-toggle" tabindex="0">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
-                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">3</h1></div>
-                    </li>
-                    <li class="uk-transition-toggle" tabindex="0">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
-                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">4</h1></div>
-                    </li>
-                    <li class="uk-transition-toggle" tabindex="0">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
-                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">5</h1></div>
-                    </li>
-                    <li class="uk-transition-toggle" tabindex="0">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
-                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">6</h1></div>
-                    </li>
-                    <li class="uk-transition-toggle" tabindex="0">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
-                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">7</h1></div>  
-                    </li>
-                    <li class="uk-transition-toggle" tabindex="0">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
-                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">8</h1></div>
-                    </li>
-                    <li class="uk-transition-toggle" tabindex="0">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
-                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">9</h1></div>
-                    </li>
-                    <li class="uk-transition-toggle" tabindex="0">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/81IhAqN6uqL.jpg" alt="">
-                        <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">10</h1></div>
-                    </li>
+                    {% endfor %}
                 </ul>
                 <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
             
@@ -162,6 +127,13 @@
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.9.1/dist/js/uikit-icons.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type=text/javascript>
+    
+</script>
+<script type=text/javascript>
+    $('#search_button').on('click',function() {
+        var search_word = document.getElementById('input_search').value;
+        window.location.href = "http://127.0.0.1:5000/search/" + search_word;
+    });
     $('#login_submit ').on('click',function() {
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
