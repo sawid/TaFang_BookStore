@@ -29,12 +29,7 @@
                     <button id="cart" style="display: None" class="uk-button uk-button-default"><i class="fas fa-shopping-cart"></i></button>
                     <div uk-dropdown>
                         <ul class="uk-nav uk-dropdown-nav">
-                            <li class="uk-nav-header">รายการหนังสือ</li>
-                            <li><a href="#">หนังสือ 1</a></li>
-                            <li><a href="#">หนังสือ 2</a></li>
-                            <li class="uk-nav-divider"></li>
-                            <li><a href="#">จ่ายเงิน</a></li>
-                            <li><a href="#">ลบรายการทั้งหมด</a></li>
+                            <li><a href="/payment">จ่ายเงิน</a></li>
                         </ul>
                     </div>
                     <button id="login_button" class="uk-button uk-button-default" uk-toggle="target: #modal-close-default">เข้าสู่ระบบ</button>
@@ -150,6 +145,7 @@
             success: function (response) {
                 console.log(response)
                 if (response == "Can login") {
+                    document.getElementById("login_button").click();
                     document.getElementById('login_status').className = "uk-label uk-label-success";
                     document.getElementById("login_status").textContent = "Login Successs";
                     document.getElementById("cart").style.display = '';

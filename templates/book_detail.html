@@ -29,15 +29,10 @@
                     <button class="uk-button uk-button-default"><i class="fas fa-shopping-cart"></i></button>
                     <div uk-dropdown>
                         <ul class="uk-nav uk-dropdown-nav">
-                            <li class="uk-nav-header">รายการหนังสือ</li>
-                            <li><a href="#">หนังสือ 1</a></li>
-                            <li><a href="#">หนังสือ 2</a></li>
-                            <li class="uk-nav-divider"></li>
-                            <li><a href="#">จ่ายเงิน</a></li>
-                            <li><a href="#">ลบรายการทั้งหมด</a></li>
+                            <li><a href="/payment">จ่ายเงิน</a></li>
                         </ul>
                     </div>
-                    <button class="uk-button uk-button-default" uk-toggle="target: #modal-close-default" disabled>{{ username_data }}</button>
+                    <button id="user_box" class="uk-button uk-button-default" uk-toggle="target: #modal-close-default" disabled>{{ username_data }}</button>
                     <div id="modal-close-default" class="font-prompt" uk-modal>
                         <div class="uk-modal-dialog">
                             <div class="uk-modal-body">
@@ -83,8 +78,8 @@
                             <p><b>ผู้แต่ง</b> {{ data_book[1] }}</p>
                             <p><b>ประเภท</b> {{ data_book[2] }}</p>
                             <p><b>อธิบายโดยย่อ</b> {{ data_book[4] }}</p>
-                            <p class="uk-text-large "><b class="uk-text-success">{{ data_book[6] * 35.0 }}</b> บาท</p>
-                            <button class="uk-button uk-button-primary">ใส่ในตะกร้า</button>
+                            <p class="uk-text-large "><b class="uk-text-success">{{ data_book[6] }}</b> เหรียญ</p>
+                            <button id="addinCart" value="{{ data_book[7] }}" class="uk-button uk-button-primary">ใส่ในตะกร้า</button>
                     </div>
                 </div>
                 <div>
@@ -101,5 +96,27 @@
 <script src="https://kit.fontawesome.com/1ddc0f7b0c.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.9.1/dist/js/uikit.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.9.1/dist/js/uikit-icons.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+    $('#addinCart').on('click',function() {
+        var book_id_data = document.getElementById('addinCart').value;
+        var user_id_data = document.getElementById('user_box').textContent;
+        $.ajax({
+            url: "/addCart",
+            type: "POST",
+            data: {
+                "book_id": book_id_data,
+                "user_id": user_id_data
 
+            } ,
+            success: function (response) {
+                console.log(response)
+                
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    });
+</script>
 </html>

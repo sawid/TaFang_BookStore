@@ -25,6 +25,18 @@ def linear_search(word, lst):
             temp_lst.append(o)
 
     return temp_lst
+
+def linear_search_list(word, lst):
+    temp_lst = []
+    for i in word:
+        for o in lst :
+            print(i)
+            print(o[7])
+            print("------")
+            if int(i) == int(o[7]):
+                temp_lst.append(o)
+
+    return temp_lst
            
 
 
@@ -61,7 +73,12 @@ def book_detail(book_id):
 
 @route.route('/payment')
 def payment():
-    return  render_template('payment.html')
+    res_lst = linear_search_list(cart_list, book_list)
+    print(res_lst)
+    sum_cost = 0
+    for elem in res_lst:
+                sum_cost += elem[5]
+    return  render_template('payment.html', user_id = user, list_book = res_lst, total_cost = sum_cost)
 
 @route.route('/addName',methods=['POST'])
 def addName():
@@ -73,6 +90,8 @@ def addName():
     if result == "Succcess":
             temp = "Can login"
             global user
+            global cart_list
+            cart_list = []
             user = username
     elif result == "Failed":
             temp = "Cannot Login"
@@ -80,3 +99,22 @@ def addName():
             temp = "Regist Success"
     print("Success")
     return (temp,200)
+
+@route.route('/paysuccess')
+def paysuccess():
+    return render_template('pay_success.html')
+
+
+@route.route('/addCart',methods=['POST'])
+def addCart():
+    book_id = request.form.get('book_id','')
+    cart_list.append(book_id)
+    print(cart_list)
+    return ("Success",200)
+
+@route.route('/removeCart',methods=['POST'])
+def removeCart():
+    while cart_list != []:
+        cart_list.pop()
+    print(cart_list)
+    return ("Success",200)

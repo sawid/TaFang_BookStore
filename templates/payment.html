@@ -27,7 +27,7 @@
                     <div>
                         <div class="uk-background-default uk-padding uk-align-right">
                             
-                            <button class="uk-button uk-button-default" disabled>User Name</button>
+                            <button class="uk-button uk-button-default" disabled>{{ user_id }}</button>
                         </div>
                     </div>
                 </div>
@@ -44,17 +44,29 @@
                 
                 <div class="uk-margin-medium-left font-prompt">
                         <dl class="uk-description-list uk-description-list-divider ">
-                                <dt class="uk-text-bold uk-text-large"><b>ชื่อของหนังสือ</b> </dt>
-                                <dd><b>จำนวน</b> 3 เล่ม</dd>
-                                <dt class="uk-text-bold uk-text-large"><b>ชื่อของหนังสือ</b> </dt>
-                                <dd><b>จำนวน</b> 3 เล่ม</dd>
-                                <dt class="uk-text-bold uk-text-large"><b>ชื่อของหนังสือ</b> </dt>
-                                <dd><b>จำนวน</b> 3 เล่ม</dd>
+                            {% if list_book == [] %}
+                                <h2 class="font-prompt uk-text-center">ไม่มีรายการชำระเงิน</h2>
+                            {% endif %}
+                            {% for data_set in list_book %}
+                                <dt class="uk-text-bold uk-text-large"><b>{{ data_set[0] }}</b> </dt>
+                                <dd><b>{{ data_set[5] }}</b> เหรียญ</dd>
+                            {% endfor %}
+                            
+                                
+                            
                         </dl>
                 </div>
+                {% if list_book != [] %}
+                
+                    
+                
                 <div class="uk-margin-medium-left font-prompt uk-align-right">
-                    <button class="uk-button uk-button-primary uk-button-large">ยืนยันการชำระเงิน</button>
+                    <button id="removeCart_Button" class="uk-button uk-button-primary uk-button-large">ยืนยันการชำระเงิน</button>
                 </div>
+                <div class="uk-align-right font-prompt">
+                    <p>ยอดรวม <b class="uk-text-bold uk-text-large uk-text-success">{{ total_cost }}</b> เหรียญ</p>
+                </div>
+                {% endif %}
 
                 
         
@@ -65,5 +77,23 @@
 <script src="https://kit.fontawesome.com/1ddc0f7b0c.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.9.1/dist/js/uikit.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.9.1/dist/js/uikit-icons.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+    $('#removeCart_Button').on('click',function() {
+        $.ajax({
+            url: "/removeCart",
+            type: "POST",
+            data: {
 
+            } ,
+            success: function (response) {
+                self.location.href="/paysuccess";
+                
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    });
+</script>
 </html>
